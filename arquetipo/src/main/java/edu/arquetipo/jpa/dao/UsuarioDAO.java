@@ -23,6 +23,7 @@ public class UsuarioDAO {
     public void insertar(Usuario usuario) {
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
+        // Guarda al usuario
         em.persist(usuario);
         em.getTransaction().commit();
         em.close();
@@ -72,7 +73,7 @@ public class UsuarioDAO {
                 break;
             }
         }
-        // Se sobrescriben los detalles del usuario
+        // Se sobrescriben los detalles del usuario y se suben los cambios
         em.merge(usuarioEncontrado);
         em.getTransaction().commit();
         em.close();

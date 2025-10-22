@@ -1,5 +1,7 @@
 package edu.arquetipo.jpa.entidades;
 
+import java.time.LocalDate;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -9,30 +11,29 @@ public class Usuario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nombre;
-    private String fechaNacimiento;
+    private LocalDate fechaNacimiento;
     private String rol;
-    private String email;
+    private String correo;
+    private int tlf;
+    private String contrasena;
 
     @Override
     public String toString() {
         return "Usuario [Id=" + id + "\n Nombre=" + nombre + "\n Fecha de nacimiento=" + fechaNacimiento + "\n Rol="
                 + rol
-                + "\n Email=" + email + "\n Teléfono=" + tlf + "]";
+                + "\n Email=" + correo + "\n Teléfono=" + tlf + "]";
     }
-
-    private int tlf;
-    private String contrasena;
 
     // Constructor sin argumentos
     public Usuario() {
     }
 
     // Constructor para testing y registro de usuarios
-    public Usuario(String nombre, String fechaNacimiento, String rol, String email, int tlf, String contrasena) {
+    public Usuario(String nombre, LocalDate fechaNacimiento, String rol, String correo, int tlf, String contrasena) {
         this.nombre = nombre;
         this.fechaNacimiento = fechaNacimiento;
         this.rol = rol;
-        this.email = email;
+        this.correo = correo;
         this.tlf = tlf;
         this.contrasena = contrasena;
     }
@@ -55,10 +56,10 @@ public class Usuario {
     }
 
     public String getFechaNacimiento() {
-        return fechaNacimiento;
+        return fechaNacimiento.toString();
     }
 
-    public void setFechaNacimiento(String fechaNacimiento) {
+    public void setFechaNacimiento(LocalDate fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
 
@@ -70,12 +71,12 @@ public class Usuario {
         this.rol = rol;
     }
 
-    public String getEmail() {
-        return email;
+    public String getCorreo() {
+        return correo;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setCorreo(String correo) {
+        this.correo = correo;
     }
 
     public int getTlf() {

@@ -8,7 +8,7 @@ public interface OperativaUsuarioInterfaz {
 
     void crearUsuario(Usuario usuario);
 
-    void editarDetallesUsuario(String nombre, String cosaACambiar);
+    void editarDetalles(String nombre, String cosaACambiar);
 
     void borrarUsuario(String nombre);
 
