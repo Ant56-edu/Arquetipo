@@ -9,9 +9,17 @@ public class Usuario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nombre;
-    private int edad;
+    private String fechaNacimiento;
     private String rol;
     private String email;
+
+    @Override
+    public String toString() {
+        return "Usuario [Id=" + id + "\n Nombre=" + nombre + "\n Fecha de nacimiento=" + fechaNacimiento + "\n Rol="
+                + rol
+                + "\n Email=" + email + "\n Teléfono=" + tlf + "]";
+    }
+
     private int tlf;
     private String contrasena;
 
@@ -20,9 +28,9 @@ public class Usuario {
     }
 
     // Constructor para testing y registro de usuarios
-    public Usuario(String nombre, int edad, String rol, String email, int tlf, String contrasena) {
+    public Usuario(String nombre, String fechaNacimiento, String rol, String email, int tlf, String contrasena) {
         this.nombre = nombre;
-        this.edad = edad;
+        this.fechaNacimiento = fechaNacimiento;
         this.rol = rol;
         this.email = email;
         this.tlf = tlf;
@@ -46,12 +54,12 @@ public class Usuario {
         this.nombre = nombre;
     }
 
-    public int getEdad() {
-        return edad;
+    public String getFechaNacimiento() {
+        return fechaNacimiento;
     }
 
-    public void setEdad(int edad) {
-        this.edad = edad;
+    public void setFechaNacimiento(String fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
     }
 
     public String getRol() {
@@ -78,11 +86,11 @@ public class Usuario {
         this.tlf = tlf;
     }
 
-    public String getContraseña() {
+    public String getContrasena() {
         return contrasena;
     }
 
-    public void setContraseña(String contraseña) {
+    public void setContrasena(String contraseña) {
         this.contrasena = contraseña;
     }
 
