@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_1.xsd"
+  version="3.1">
+
+  <persistence-unit name="taskManagerPU" transaction-type="RESOURCE_LOCAL">
+    <class>jpa.entity.Usuario</class> <!-- Puedes registrar más entidades aquí -->
+    <class>jpa.entity.Tarea</class>
+    <class>jpa.entity.Subtarea</class>
+
+    <properties>
+      <!-- Datos de conexión a PostgreSQL (host = nombre del contenedor: db) -->
+      <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://db:5432/mydb" />
+      <property name="jakarta.persistence.jdbc.user" value="myuser" />
+      <property name="jakarta.persistence.jdbc.password" value="mypass" />
+      <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver" />
+
+      <!-- Dialecto de Hibernate para PostgreSQL -->
+      <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
+
+      <!-- Crear las tablas automáticamente si no existen -->
+      <property name="hibernate.hbm2ddl.auto" value="update" />
+
+      <!-- Mostrar SQL por consola para depuración -->
+      <property name="hibernate.show_sql" value="true" />
+      <property name="hibernate.format_sql" value="true" />
+
+      <!-- Opcional: formato de logs -->
+      <property name="hibernate.highlight_sql" value="true" />
+    </properties>
+  </persistence-unit>
+</persistence>
